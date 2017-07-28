@@ -26,18 +26,11 @@ public class ReadAllNotesActivity extends AppCompatActivity {
     }
 
     public void readAllNotes(View view) {
-        showNotesTV.setText("");
         String[] projection = {
                 FeedEntry._ID,
                 FeedEntry.COLUMN_NAME_NOTE_TITLE,
                 FeedEntry.COLUMN_NAME_NOTE_CONTENT
         };
-        String selection = FeedEntry.COLUMN_NAME_NOTE_TITLE + " = ?";
-//        String[] selectionArg = {
-//                "Record title"
-//        };
-
-//        String sortOrder = FeedEntry.COLUMN_NAME_NOTE_CONTENT +"DESC";
 
         Cursor cursor = database.query(
                 FeedEntry.TABLE_NAME,   //TABLE
@@ -48,16 +41,14 @@ public class ReadAllNotesActivity extends AppCompatActivity {
                 null,                   //Filters
                 null                    //Sort order
         );
+        if(cursor.getCount() > 0)
+            showNotesTV.setText("");
+
         while(cursor.moveToNext()){
             long entryId = cursor.getLong(cursor.getColumnIndexOrThrow(FeedEntry._ID));
             String entryNoteTile = cursor.getString(cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_NOTE_TITLE));
             String entryNoteContent = cursor.getString(cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_NOTE_CONTENT));
 
-//            showRecordsTV.append("id: " + entryId + " title: " + entryTile + " subtitle: " + entrySubltitle + "\n");
-
-
-            //////STRING BUILDER
-            //FASTER THAN USING STRINGS
             StringBuilder sBuilder = new StringBuilder();
             sBuilder.append("Result: ");
             sBuilder.append("id: ");

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,17 +32,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateNote(View view) {
         String update = updateDeleteET.getText().toString();
-        Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
-        intent.putExtra(MAIN_ACTIVITY_EXTRA, update);
-        startActivity(intent);
-        updateDeleteET.setText("");
+        if(update.isEmpty())
+            Toast.makeText(this, "You need to write on Update/Delete box", Toast.LENGTH_SHORT).show();
+        else{
+            Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
+            intent.putExtra(MAIN_ACTIVITY_EXTRA, update);
+            startActivity(intent);
+            updateDeleteET.setText("");
+        }
     }
 
     public void deleteNote(View view) {
-        String delete = updateDeleteET.getText().toString();
-        Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
-        intent.putExtra(MAIN_ACTIVITY_EXTRA, delete);
-        startActivity(intent);
-        updateDeleteET.setText("");
+        String update = updateDeleteET.getText().toString();
+        if(update.isEmpty())
+            Toast.makeText(this, "You need to write on Update/Delete box", Toast.LENGTH_SHORT).show();
+        else{
+            String delete = updateDeleteET.getText().toString();
+            Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
+            intent.putExtra(MAIN_ACTIVITY_EXTRA, delete);
+            startActivity(intent);
+            updateDeleteET.setText("");
+        }
     }
 }
