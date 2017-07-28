@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Week2CodingTestHeber</string>
+    <string name="lbl_home_message">W2D3 TEST 1 - HOME</string>
+    <string name="lbl_title">Update/Delete by title:</string>
+    <string name="lbl_btn_save_note">SAVE NOTE</string>
+    <string name="lbl_btn_read_all_notes">READ ALL NOTES</string>
+    <string name="lbl_btn_update_note">UPDATE NOTE</string>
+    <string name="lbl_btn_delete_note">DELETE NOTE</string>
+    <string name="lbl_hint_note_title">Note title:</string>
+    <string name="lbl_hint_note_content">Note content:</string>
+    <string name="lbl_w2d3_test_1_save">W2D3 TEST 1 - SAVE</string>
+    <string name="lbl_w2d3_test_1_read">W2D3 TEST 1 - READ</string>
+    <string name="lbl_tv_result">Result:</string>
+    <string name="lbl_w2d3_test_1_delete">W2D3 TEST 1 - DELETE</string>
+</resources>
